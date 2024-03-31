@@ -2,12 +2,14 @@ import os
 import pandas as pd
 import subprocess
 
+from datetime import datetime
 from playwright.sync_api import sync_playwright
+
 
 LETTERBOXD_USERNAME = os.getenv("LETTERBOXD_USERNAME")
 LETTERBOXD_PASSWORD = os.getenv("LETTERBOXD_PASSWORD")
 TRAKT_USERNAME = os.getenv("TRAKT_USERNAME")
-FILTER_CSV = os.getenv("FILTER_CSV", "2023-01-01")
+FILTER_CSV = os.getenv("FILTER_CSV", f"{datetime.now().year}-01-01")
 
 
 def generate_csv(trakt_username):
@@ -43,7 +45,7 @@ def upload_csv(csv_file):
 
         # Accept cookies
         concent_button = page.locator(
-            '//*[@id="html"]/body/div[7]/div[2]/div[1]/div[2]/div[2]/button[1]'
+            '//*[@id="html"]/body/div[8]/div[2]/div[1]/div[2]/div[2]/button[1]'
         )
         concent_button.wait_for(state="visible", timeout=5000)
         print(f"Found consent button: {concent_button}")

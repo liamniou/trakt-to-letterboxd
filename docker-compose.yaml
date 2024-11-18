@@ -2,9 +2,9 @@ services:
   trakt-to-letterboxd:
     image: liamnou/trakt-to-letterboxd:latest
     container_name: trakt-to-letterboxd
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     environment:
       - LETTERBOXD_USERNAME=${LETTERBOXD_USERNAME}
       - LETTERBOXD_PASSWORD=${LETTERBOXD_PASSWORD}

@@ -1,12 +1,13 @@
-version: "3.8"
-
 services:
   trakt-to-letterboxd:
+    image: liamnou/trakt-to-letterboxd:latest
     container_name: trakt-to-letterboxd
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     environment:
       - LETTERBOXD_USERNAME=${LETTERBOXD_USERNAME}
       - LETTERBOXD_PASSWORD=${LETTERBOXD_PASSWORD}
       - TRAKT_USERNAME=${TRAKT_USERNAME}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}

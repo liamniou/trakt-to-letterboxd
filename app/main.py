@@ -44,6 +44,7 @@ def upload_csv(csv_file):
         page.goto("https://letterboxd.com/")
 
         # Accept cookies
+        print("Click cookies concent button...")
         concent_button = page.locator(
             '//*[@id="html"]/body/div[8]/div[2]/div[1]/div[2]/div[2]/button[1]'
         )
